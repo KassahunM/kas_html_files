@@ -21,13 +21,28 @@
         <h2>This heading 2 is added on the remote server github</h2>
         <h3>This the third heading added on github server</h3>
         <h4>This heading 4 is added on client side</h4>
-        <form action="">
-            <p> User Name: <input type="text" name="username"></p>
-            <p> Email <input type="email" name="email"></p>
-            <p> password: <input type="password" name="password"></p>
-            <input type="submit" value="submit">
+        <!--<form action="">-->
+            <p> User Name: <input type="text" id="usr" name="username"></p>
+            <p> Email <input type="email" id="eml" name="email"></p>
+            <p> password: <input type="password" id="psrd" name="password"></p>
+            <button onclick="myform()">Submit</button>
+            <p style="color: brown;"> Submit personal data</p>
+         <!--</form>-->
+                <div id="demo"></div>
+            
+            <script>
+                var user = document.querySelector("#usr");
+                var email=document.querySelector("#eml");
+                var password=document.querySelector("#psrd");
+                function myform(){
+                    var demo=document.querySelector('#demo');
+                    demo.innerHTML=`Username: ${user.value} <br><br> Email: ${email.value} <br><br> Password: ${password.value}`
+               
+                }
 
-        </form>
+            </script>
+
+        
 
     </div>
     
