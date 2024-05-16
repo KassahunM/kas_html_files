@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>KassahunM Git Exercise</title>
     <style>
         #wrapper0{
@@ -11,6 +12,7 @@
             margin: auto;
             width: 75%;
             padding: 12px;
+            
         }
         #mycolor{
             width: 50%;
@@ -20,14 +22,15 @@
             padding: 20px;
         }
         
-        #wrapper{
+        #crystallization_wrapper,#extraction_wrapper,#clarification_wrapper{
             margin: auto;
             width: 90%;
             border: 1px solid rgb(44, 128, 62);
             background-color: honeydew;
             text-align: center;
+            
         }
-        #input-container{
+        .input-container{
           
             background-color: rgb(206, 211, 211);
             padding: 10px;
@@ -38,7 +41,7 @@
             height: 300px;
             overflow: scroll;
         }
-        #output-container {
+        .output-container {
           
           background-color: rgb(130, 131, 109);
           padding: 10px;
@@ -51,18 +54,18 @@
           height: 300px;
           overflow: scroll;
       }
-        #input-container p, #output-container p{
+        .input-container p, .output-container p{
             /*width: 255px;*/
             margin-right: 6px;
             width: 30%;
         }
-        #input-container p input{
+        .input-container p input{
             background-color: rgb(125, 128, 113);
             width: 25%;
             color: rgb(240, 230, 239);
             text-align: center;
         }
-        #output-container p input{
+        .output-container p input{
             background-color: rgb(11, 11, 27);
             width: 25%;
             color: rgb(162, 180, 167);
@@ -90,24 +93,80 @@
             margin-bottom: 5px  
         }
     </style>
+    
+
 </head>
 
 <body> 
-    <div id="wrapper">
+    <p style='color:red' id="pass_holder"> Enter your password :<input type='text' id='password' autocomplete='off'></p>
+    <button id="show">Show</button>
+    <h6 id="alert"></h6>
+   <div id="outer_container" style="display:none ;">
+
+    <button id='extraction_display'>Open extraction</button>
+    <button id='extraction_none_display'>Close Extraction</button>
+    <button id='clarification_display'>Open Clarification</button>
+    <button id='clarification_none_display'>Close Clarification</button>
+    <button id='crystallization_display'>Open Crystallization</button>
+    <button id='crystallization_none_display'>Close Crystallization</button>
+   
+
+    <div id="extraction_wrapper">
+        <h1>Extraction Material Balance</h1>
+        <h2>Inputs</h2>
+        <div id="input-container">
+            <p>TCH: <input class="tch"  placeholder="TCH" value="226"></p> 
+            <p>MJ%cane: <input class="mj_percent_cane"  placeholder="MJ%cane" value="98"></p>
+            <p>Imbibition%cane: <input id="imbibition_percent_cane"  placeholder="Imbibition%cane" value="27"></p>
+        </div>
+
+        <button class="btn">Run calculation</button>
+        <h2>Calculation Results- Mass Flow (t/h) </h2>
+        <div id="output-container">
+            <p>TCH: <input class="tch_out" readonly></p>
+            <p>Imbibition Water: <input id="imb_out" readonly></p>
+            <p>Mixed Juice: <input class="mj_out" readonly></p>
+            <p>Bagasse: <input id="bagasse_out" readonly></p>
+        </div>
+
+
+        <div id="clarification_wrapper">
+            <h1>Clarification Plant Material Balance</h1>
+            <h2>Inputs</h2>
+            <div id="input-container">
+                
+                <p>MOL%cane: <input id="mol_percent_cane"  placeholder="MOL%cane" value="2.25"></p>
+                <p>SO2%cane: <input id="so2_percent_cane"  placeholder="SO2%cane" value="0.07"></p>
+                <p>Mud filter spray water%cane: <input id="mud_filter_water_percent_cane"  placeholder="mud-filter-water%cane" value="2.5"></p>
+                <p>Filter cake%cane: <input id="filter_cake_percent_cane"  placeholder="Filter cake % cane" value="3.5"></p>
+                <p>Mixed juice brix: <input id="mj_bx"  placeholder="Mixed juice brix" value="16"></p>
+                <p>Mixed juice purity: <input id="mj_pty"  placeholder="Mixed juice purity" value="84"></p>
+                <p>Clear juice brix: <input id="cj_bx"  placeholder="Clear juice brix" value="15.5"></p>
+                <p>Clear juice purity: <input id="cj_pty"  placeholder="Clear juice purity" value="85"></p>
+            </div>
+    
+            <button class="btn">Run calculation</button>
+            <h2>Calculation Results- Mass Flow (t/h) </h2>
+            <div id="output-container">
+                <p>Mixed Juice: <input class="mj_out" readonly></p>
+                <p>MOL: <input id="mol_out" readonly></p>
+                <p>SO2: <input id="so2_out" readonly></p>
+                <p>Filter Wash water: <input id="filter_wash_out" readonly></p>
+                <p>Filter Cake: <input id="filter_cake_out" readonly></p>
+                <p>Clear Juice: <input class="cj_out" readonly></p>
+                
+            </div>
+            
+       
+    </div>   <!--end of extraction-->
+   
+    <div id="crystallization_wrapper" style="display: none;">
         <h1>Crystallization Plant Solid Balance</h1>
         <h2>Inputs</h2>
 
-        <div id="input-container">
-            <p>TCH: <input id="tch"  placeholder="TCH" value="226"></p> 
-            <p>MJ%cane: <input id="mj_percent_cane"  placeholder="MJ%cane" value="98"></p>
-            <p>MOL%cane: <input id="mol_percent_cane"  placeholder="MOL%cane" value="2.25"></p>
-            <p>SO2%cane: <input id="so2_percent_cane"  placeholder="SO2%cane" value="0.07"></p>
-            <p>Mud filter spray water%cane: <input id="mud_filter_water_percent_cane"  placeholder="mud-filter-water%cane" value="2.5"></p>
-            <p>Filter cake%cane: <input id="filter_cake_percent_cane"  placeholder="Filter cake % cane" value="3.5"></p>
-            <p>Mixed juice brix: <input id="mj_bx"  placeholder="Mixed juice brix" value="16"></p>
-            <p>Mixed juice purity: <input id="mj_pty"  placeholder="Mixed juice purity" value="84"></p>
-            <p>Clear juice brix: <input id="cj_bx"  placeholder="Clear juice brix" value="15.5"></p>
-            <p>Clear juice purity: <input id="cj_pty"  placeholder="Clear juice purity" value="85"></p>
+        <div class="input-container">
+           
+            
             <p>Syrup brix: <input id="syrup_bx"  placeholder="syrup brix" value="64"></p>
             <p>Syrup purity: <input id="syrup_pty"  placeholder="syrup purity" value="83.5"></p>
             <p>A-massecuite brix: <input id="a_cuite_bx"  placeholder="A-cuite brix" value="94"></p>
@@ -144,17 +203,15 @@
 
 
         </div>  <!--end input container-->
-        <button id="btn">Run calculation</button>
+        <button class="btn">Run calculation</button>
         <h2>Calculation Results- Solid Flow (t/h) </h2>
         <h5 id="warning" style="display: none;color: red;background-color: yellow;">Warning:There is mismatch in purities. Check input purities again. 
             A-wash solid flow to A-pan or to mingler shouldn't be negative</h5>
-        <div id="output-container">
-            <p>TCH: <input id="tch_out" readonly></p>
-            <p>Mixed Juice: <input id="mj_out" readonly></p>
-            <p>Clear Juice: <input id="cj_out" readonly></p>
-            <p>Syrup solid flow: <input id="syrup_out" readonly></p>
-            <p>Syrup solid flow for A-cuite-boiling: <input id="syrup_to_a_out" readonly></p>
-            <p>Syrup solid flow for C-cuite-boiling: <input id="syrup_to_c_out" readonly></p>
+        <div class="output-container">
+            <p>Clear Juice: <input class="cj_out" readonly></p>
+            <p>Syrup Total: <input id="syrup_out" readonly></p>
+            <p>Syrup for A-cuite-boiling: <input id="syrup_to_a_out" readonly></p>
+            <p>Syrup for C-cuite-boiling: <input id="syrup_to_c_out" readonly></p>
             <p>A-massecuite: <input id="a-cuite-out" readonly></p>
             <p>C-massecuite: <input id="c-cuite-out" readonly></p>
             <p>D-massecuite: <input id="d-cuite-out" readonly></p>
@@ -186,15 +243,43 @@
 
         </div>   <!--end output container-->
         <footer id="footer"><h2>copyright kassahun apps ktm15.com</h2></footer>
-    </div>
+    </div>    <!--ednd crystallization -->
 
+    
+
+   
+
+    </div>   <!--outer container-->
     <script>
+        
+     var pass=document.querySelector("#password")
+     var outer=document.querySelector("#outer_container")
+     var s=document.querySelector("#show")
+     var alerts=document.querySelector("#alert")
+     var ph=document.querySelector("#pass_holder")
+     function show(){
+        if (pass.value =='kass'){
+            outer.style.display='block'
+            alerts.style.display="none"
+            s.style.display='none'
+            ph.style.display='none'
+           
+        }
+        else{
+            alerts.innerHTML='Enter correct password'
+        }
+     }   
+     s.addEventListener("click",show)
+        
+    
+    
         //assign input variables
-        var tch=document.querySelector("#tch");
-        var mj=document.querySelector("#mj_percent_cane");
+        var tch=document.querySelector(".tch");
+        var imb=document.querySelector("#imbibition_percent_cane");
+        var mj=document.querySelector(".mj_percent_cane");
         var mol=document.querySelector("#mol_percent_cane");
         var so2=document.querySelector("#so2_percent_cane");
-        var mud_filter_water=document.querySelector("#mud_filter_water_percent_cane");
+        var filter_wash=document.querySelector("#mud_filter_water_percent_cane");
         var filter_cake=document.querySelector("#filter_cake_percent_cane");
         var mj_bx=document.querySelector("#mj_bx");
         var mj_pty=document.querySelector("#mj_pty");
@@ -233,20 +318,28 @@
         var seed_percent_a_cuite=document.querySelector("#seed_percent_a_cuite");
         var reject_sugar_percent_cane=document.querySelector("#reject_sugar_percent_cane");
         var panwash_percent_cuite=document.querySelector("#panwash_percent_cuite");
-        var btn=document.querySelector("#btn");
-
 
         function calculate(){
-            document.querySelector("#tch_out").value=parseFloat(tch.value).toFixed(2);
-            document.querySelector("#mj_out").value=((tch.value*mj.value)/100).toFixed(2);
+            document.querySelector(".tch_out").value=parseFloat(tch.value).toFixed(2);
+            mj_out=document.querySelectorAll(".mj_out");
+            mj_out[0].value=(parseFloat(tch.value*mj.value)/100).toFixed(2);//for extraction
+            mj_out[1].value=(parseFloat(tch.value*mj.value)/100).toFixed(2);//for clarification
+            document.querySelector("#imb_out").value=((tch.value*imb.value)/100).toFixed(2);
+            var bagasse=parseFloat(tch.value*(1+imb.value/100-mj.value/100));
+            document.querySelector("#bagasse_out").value=bagasse.toFixed(2);
+            document.querySelector("#mol_out").value=(parseFloat(tch.value*mol.value)/100).toFixed(2);
+            document.querySelector("#so2_out").value=(parseFloat(tch.value*so2.value)/100).toFixed(2);
+            document.querySelector("#filter_wash_out").value=parseFloat(tch.value*filter_wash.value/100).toFixed(2);
+            document.querySelector("#filter_cake_out").value=parseFloat(tch.value*filter_cake.value/100).toFixed(2);
             
             var cj=(
-                    parseFloat(mj.value)+parseFloat(mud_filter_water.value)
+                    parseFloat(mj.value)+parseFloat(filter_wash.value)
                     +parseFloat(mol.value)
                     +parseFloat(so2.value)
                     -parseFloat(filter_cake.value)
                     )*parseFloat(tch.value)/100;
-            document.querySelector("#cj_out").value=cj.toFixed(2);
+            document.querySelectorAll(".cj_out")[0].value=cj.toFixed(2);
+            document.querySelectorAll(".cj_out")[1].value=(cj*parseFloat(cj_bx.value)/100).toFixed(2);
 
             var syrup_flow=cj*parseFloat(cj_bx.value)/parseFloat(syrup_bx.value);
             var syrup_solid=syrup_flow*parseFloat(syrup_bx.value/100);
@@ -343,10 +436,45 @@
             total_pan_wash = a_pan_wash+c_pan_wash+d_pan_wash;
             document.querySelector("#total-panwash").value=total_pan_wash.toFixed(2);
         
-        }     
-        btn.addEventListener("click",calculate)                                    
-             
+        }   
+        
+        var btn=document.querySelector(".btn");
+        btn.addEventListener("click",calculate); 
 
+        bt1=document.querySelector("#crystallization_display");
+        bt2=document.querySelector("#crystallization_none_display");
+
+        function open() {
+            document.querySelector("#crystallization_wrapper").style.display="block";
+           
+                    
+        }  
+        function close() {
+            document.querySelector("#crystallization_wrapper").style.display="none" 
+               
+        } 
+        bt1.addEventListener('click',open)
+      
+        bt2.addEventListener('click',close) 
+          
+        
+        
+            
+
+       
+            
+
+       
+       
+            
+            
+
+        
+        
+
+        
+
+        
         
     </script>
 
