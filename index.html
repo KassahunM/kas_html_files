@@ -121,6 +121,7 @@
         </div>
 
         <button class="btn">Run calculation</button>
+        
         <h2>Calculation Results- Mass Flow (t/h) </h2>
         <div id="output-container">
             <p>TCH: <input class="tch_out" readonly></p>
@@ -146,6 +147,7 @@
             </div>
     
             <button class="btn">Run calculation</button>
+            
             <h2>Calculation Results- Mass Flow (t/h) </h2>
             <div id="output-container">
                 <p>Mixed Juice: <input class="mj_out" readonly></p>
@@ -203,7 +205,9 @@
 
 
         </div>  <!--end input container-->
+        
         <button class="btn">Run calculation</button>
+        
         <h2>Calculation Results- Solid Flow (t/h) </h2>
         <h5 id="warning" style="display: none;color: red;background-color: yellow;">Warning:There is mismatch in purities. Check input purities again. 
             A-wash solid flow to A-pan or to mingler shouldn't be negative</h5>
@@ -346,7 +350,7 @@
             var syrup_solid=syrup_flow*parseFloat(syrup_bx.value/100);
             document.querySelector("#syrup_out").value=syrup_solid.toFixed(2);
 
-            var final_product= syrup_solid*(parseFloat(syrup_pty.value)-parseFloat(final_mol_pty.value))/ //final_product is commericial sugar after grading
+            var final_product= syruthe secret law of attraction full movie p_solid*(parseFloat(syrup_pty.value)-parseFloat(final_mol_pty.value))/ //final_product is commericial sugar after grading
                           (parseFloat(aaw_magma_pty.value)-parseFloat(final_mol_pty.value));
             document.querySelector("#final-product-out").value=final_product.toFixed(2);
 
@@ -442,21 +446,34 @@
         var btn=document.querySelector(".btn");
         btn.addEventListener("click",calculate); 
 
-        bt1=document.querySelector("#crystallization_display");
-        bt2=document.querySelector("#crystallization_none_display");
+        extractionDisplay=document.querySelector("#extraction_display");
+        extractionClose=document.querySelector("#extraction_none_display");
+        clarificationDisplay=document.querySelector("#clarification_display");
+        clarificationClose=document.querySelector("#clarification_none_display");
+        crystallizationDisplay=document.querySelector("#crystallization_display");
+        crystallizationClose=document.querySelector("#crystallization_none_display");
 
-        function open() {
-            document.querySelector("#crystallization_wrapper").style.display="block";
-           
-                    
+        function openExtraction() {
+            document.querySelector("#extraction_wrapper").style.display="block";          
         }  
-        function close() {
+        function closeExtraction() {
+            document.querySelector("#extraction_wrapper").style.display="none" 
+        } 
+       extractionDisplay.addEventListener('click',openExtraction)
+      
+      extractionClose.addEventListener('click',closeExtraction) 
+        
+
+        function openCrystallization() {
+            document.querySelector("#crystallization_wrapper").style.display="block";          
+        }  
+        function closeCrystallization() {
             document.querySelector("#crystallization_wrapper").style.display="none" 
                
         } 
-        bt1.addEventListener('click',open)
+       crystallizationDisplay.addEventListener('click',openCrystallization)
       
-        bt2.addEventListener('click',close) 
+       crystallizationClose.addEventListener('click',closeCrystallization) 
           
         
     
