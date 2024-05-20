@@ -129,6 +129,7 @@
             <p>Mixed Juice: <input class="mj_out" readonly></p>
             <p>Bagasse: <input id="bagasse_out" readonly></p>
         </div>
+    </div>  <!--end of extraction-->
 
 
         <div id="clarification_wrapper" style="display: none;">
@@ -160,7 +161,7 @@
             </div>
             
        
-    </div>   <!--end of extraction-->
+    </div>   <!--end of clarification-->
    
     <div id="crystallization_wrapper" style="display: none;">
         <h1>Crystallization Plant Solid Balance</h1>
@@ -324,28 +325,38 @@
         var reject_sugar_percent_cane=document.querySelector("#reject_sugar_percent_cane");
         var panwash_percent_cuite=document.querySelector("#panwash_percent_cuite");
 
-        function calculate(){
+        var mj_out=document.querySelectorAll(".mj_out");//common for extraction and clarification
+
+        function calculateExtraction(){
             document.querySelector(".tch_out").value=parseFloat(tch.value).toFixed(2);
-            mj_out=document.querySelectorAll(".mj_out");
             mj_out[0].value=(parseFloat(tch.value*mj.value)/100).toFixed(2);//for extraction
-            mj_out[1].value=(parseFloat(tch.value*mj.value)/100).toFixed(2);//for clarification
             document.querySelector("#imb_out").value=((tch.value*imb.value)/100).toFixed(2);
             var bagasse=parseFloat(tch.value*(1+imb.value/100-mj.value/100));
             document.querySelector("#bagasse_out").value=bagasse.toFixed(2);
+        }
+
+        var cj_out = document.querySelectorAll(".cj_out");//common for clarification and crystallization
+        function calculateClarification(){
+            mj_out[1].value=(parseFloat(tch.value*mj.value)/100).toFixed(2);//for clarification
             document.querySelector("#mol_out").value=(parseFloat(tch.value*mol.value)/100).toFixed(2);
             document.querySelector("#so2_out").value=(parseFloat(tch.value*so2.value)/100).toFixed(2);
             document.querySelector("#filter_wash_out").value=parseFloat(tch.value*filter_wash.value/100).toFixed(2);
             document.querySelector("#filter_cake_out").value=parseFloat(tch.value*filter_cake.value/100).toFixed(2);
-            
-            var cj=(
-                    parseFloat(mj.value)+parseFloat(filter_wash.value)
-                    +parseFloat(mol.value)
-                    +parseFloat(so2.value)
-                    -parseFloat(filter_cake.value)
-                    )*parseFloat(tch.value)/100;
-            document.querySelectorAll(".cj_out")[0].value=cj.toFixed(2);
-            document.querySelectorAll(".cj_out")[1].value=(cj*parseFloat(cj_bx.value)/100).toFixed(2);
+            cj=       //since i didn't use var or let or const for variable cj it will be global variable (can be used in the next function block)
+            (parseFloat(mj.value)+parseFloat(filter_wash.value)
+            +parseFloat(mol.value)
+            +parseFloat(so2.value)
+            -parseFloat(filter_cake.value)
+            )*parseFloat(tch.value)/100;  
 
+            
+            
+           
+            cj_out[0].value=cj.toFixed(2);
+        }
+
+        function calculateCrystallization(){
+            cj_out[1].value=(cj*parseFloat(cj_bx.value)/100).toFixed(2);
             var syrup_flow=cj*parseFloat(cj_bx.value)/parseFloat(syrup_bx.value);
             var syrup_solid=syrup_flow*parseFloat(syrup_bx.value/100);
             document.querySelector("#syrup_out").value=syrup_solid.toFixed(2);
@@ -443,8 +454,10 @@
         
         }   
         
-        var btn=document.querySelector(".btn");
-        btn.addEventListener("click",calculate); 
+        var btn=document.querySelectorAll(".btn");
+        btn[0].addEventListener("click",calculateExtraction); 
+        btn[1].addEventListener("click",calculateClarification); 
+        btn[2].addEventListener("click",calculateCrystallization); 
 
         extractionDisplay=document.querySelector("#extraction_display");
         extractionClose=document.querySelector("#extraction_none_display");
@@ -459,9 +472,20 @@
         function closeExtraction() {
             document.querySelector("#extraction_wrapper").style.display="none" 
         } 
-       extractionDisplay.addEventListener('click',openExtraction)
+        extractionDisplay.addEventListener('click',openExtraction)
       
-      extractionClose.addEventListener('click',closeExtraction) 
+        extractionClose.addEventListener('click',closeExtraction) 
+
+
+        function openClarification() {
+           document.querySelector("#clarification_wrapper").style.display="block";          
+       }  
+        function closeClarification() {
+           document.querySelector("#clarification_wrapper").style.display="none" 
+      } 
+        clarificationDisplay.addEventListener('click',openClarification)
+  
+        clarificationClose.addEventListener('click',closeClarification) 
         
 
         function openCrystallization() {
@@ -484,3 +508,4 @@
     
 </body>
 </html>
+
