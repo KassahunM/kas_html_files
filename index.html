@@ -101,42 +101,41 @@
     <p style='color:red' id="pass_holder"> Enter your password :<input type='text' id='password' autocomplete='off'></p>
     <button id="show">Show</button>
     <h6 id="alert"></h6>
-   <div id="outer_container" style="display:none ;">
+    <div id="outer_container" style="display:none ;">
 
-    <button class='open'>Open extraction</button>
-    <button class='close'>Close Extraction</button>
-    <button class='open'>Open Clarification</button>
-    <button class='close'>Close Clarification</button>
-    <button class='open'>Open Crystallization</button>
-    <button class='close'>Close Crystallization</button>
-   
+        <button class='open'>Open extraction</button>
+        <button class='close'>Close Extraction</button>
+        <button class='open'>Open Clarification</button>
+        <button class='close'>Close Clarification</button>
+        <button class='open'>Open Crystallization</button>
+        <button class='close'>Close Crystallization</button>
 
-    <div id="extraction_wrapper" style="display: none;">
-        <h1>Extraction Material Balance</h1>
-        <h2>Inputs</h2>
-        <div id="input-container">
-            <p>TCH: <input class="tch"  placeholder="TCH" value="226"></p> 
-            <p>MJ%cane: <input class="mj_percent_cane"  placeholder="MJ%cane" value="98"></p>
-            <p>Imbibition%cane: <input id="imbibition_percent_cane"  placeholder="Imbibition%cane" value="27"></p>
-        </div>
 
-        <button class="btn">Run calculation</button>
-        
-        <h2>Calculation Results- Mass Flow (t/h) </h2>
-        <div id="output-container">
-            <p>TCH: <input class="tch_out" readonly></p>
-            <p>Imbibition Water: <input id="imb_out" readonly></p>
-            <p>Mixed Juice: <input class="mj_out" readonly></p>
-            <p>Bagasse: <input id="bagasse_out" readonly></p>
-        </div>
-    </div>  <!--end of extraction-->
+        <div id="extraction_wrapper" style="display: none;">
+            <h1>Extraction Material Balance</h1>
+            <h2>Inputs</h2>
+            <div id="input-container">
+                <p>TCH: <input class="tch"  placeholder="TCH" value="226"></p> 
+                <p>MJ%cane: <input class="mj_percent_cane"  placeholder="MJ%cane" value="98"></p>
+                <p>Imbibition%cane: <input id="imbibition_percent_cane"  placeholder="Imbibition%cane" value="27"></p>
+            </div>  <!--end input container-->
+
+            <button class="btn">Run calculation</button>
+            
+            <h2>Calculation Results- Mass Flow (t/h) </h2>
+            <div id="output-container">
+                <p>TCH: <input class="tch_out" readonly></p>
+                <p>Imbibition Water: <input id="imb_out" readonly></p>
+                <p>Mixed Juice: <input class="mj_out" readonly></p>
+                <p>Bagasse: <input id="bagasse_out" readonly></p>
+            </div> <!--end output container-->
+        </div>  <!--end of extraction-->
 
 
         <div id="clarification_wrapper" style="display: none;">
             <h1>Clarification Plant Material Balance</h1>
             <h2>Inputs</h2>
             <div id="input-container">
-                
                 <p>MOL%cane: <input id="mol_percent_cane"  placeholder="MOL%cane" value="2.25"></p>
                 <p>SO2%cane: <input id="so2_percent_cane"  placeholder="SO2%cane" value="0.07"></p>
                 <p>Mud filter spray water%cane: <input id="mud_filter_water_percent_cane"  placeholder="mud-filter-water%cane" value="2.5"></p>
@@ -145,8 +144,8 @@
                 <p>Mixed juice purity: <input id="mj_pty"  placeholder="Mixed juice purity" value="84"></p>
                 <p>Clear juice brix: <input id="cj_bx"  placeholder="Clear juice brix" value="15.5"></p>
                 <p>Clear juice purity: <input id="cj_pty"  placeholder="Clear juice purity" value="85"></p>
-            </div>
-    
+            </div>  <!--end input container-->
+
             <button class="btn">Run calculation</button>
             
             <h2>Calculation Results- Mass Flow (t/h) </h2>
@@ -157,104 +156,99 @@
                 <p>Filter Wash water: <input id="filter_wash_out" readonly></p>
                 <p>Filter Cake: <input id="filter_cake_out" readonly></p>
                 <p>Clear Juice: <input class="cj_out" readonly></p>
+                    
+            </div> <!--end output container-->
                 
-            </div>
             
-       
-    </div>   <!--end of clarification-->
-   
-    <div id="crystallization_wrapper" style="display: none;">
-        <h1>Crystallization Plant Solid Balance</h1>
-        <h2>Inputs</h2>
+        </div>   <!--end of clarification-->
 
-        <div class="input-container">
-           
+        <div id="crystallization_wrapper" style="display: none;">
+            <h1>Crystallization Plant Solid Balance</h1>
+            <h2>Inputs</h2>
+
+            <div class="input-container">
+                <p>Syrup brix: <input id="syrup_bx"  placeholder="syrup brix" value="64"></p>
+                <p>Syrup purity: <input id="syrup_pty"  placeholder="syrup purity" value="83.5"></p>
+                <p>A-massecuite brix: <input id="a_cuite_bx"  placeholder="A-cuite brix" value="94"></p>
+                <p>A-massecuite purity: <input id="a_cuite_pty"  placeholder="A-cuite purity" value="86.5"></p>
+                <p>C-massecuite brix: <input id="c_cuite_bx"  placeholder="C-cuite brix" value="101"></p>
+                <p>C-massecuite purity: <input id="c_cuite_pty"  placeholder="C-cuite purity" value="72"></p>
+                <p>D-massecuite brix: <input id="d_cuite_bx"  placeholder="D-cuite brix" value="102"></p>
+                <p>D-massecuite purity: <input id="d_cuite_pty"  placeholder="D-cuite purity" value="58"></p>
+                <p>A-molasses brix: <input id="a_mol_bx"  placeholder="A-molasses brix" value="84"></p>
+                <p>A-molasses purity: <input id="a_mol_pty"  placeholder="A-molasses purity" value="70"></p>
+                <p>C-molasses brix: <input id="c_mol_bx"  placeholder="C-molasses brix" value="86"></p>
+                <p>C-molasses purity: <input id="c_mol_pty"  placeholder="C-molasses purity" value="49"></p>
+                <p>Final-molasses brix: <input id="final_mol_bx"  placeholder="Final-molasses brix" value="88"></p>
+                <p>Final-molasses purity: <input id="final_mol_pty"  placeholder="Final-molasses purity" value="34"></p>
+                <p>A-wash brix: <input id="a_wash_bx"  placeholder="A-wash brix" value="78"></p>
+                <p>A-wash purity: <input id="a_wash_pty"  placeholder="A-wash purity" value="95"></p>
+                <p>D-wash brix: <input id="d_wash_bx"  placeholder="D-wash brix" value="80"></p>
+                <p>D-wash purity: <input id="d_wash_pty"  placeholder="D-wash purity" value="65"></p>
+                <p>AFW-magma brix: <input id="afw_magma_bx"  placeholder="AFW-magma brix" value="92"></p>
+                <p>AFW-magma purity: <input id="afw_magma_pty"  placeholder="AFW-magma purity" value="98.8"></p>
+                <p>C-magma brix: <input id="c_magma_bx"  placeholder="C-magma brix" value="91"></p>
+                <p>C-magma purity: <input id="c_magma_pty"  placeholder="C-magma purity" value="92.5"></p>
+                <p>DFW-magma brix: <input id="dfw_magma_bx"  placeholder="DFW-magma brix" value="92"></p>
+                <p>DFW-magma purity: <input id="dfw_magma_pty"  placeholder="DFW-magma purity" value="84"></p>
+                <p>AAW-magma brix: <input id="aaw_magma_bx"  placeholder="AAW-magma brix" value="98.8"></p>
+                <p>AAW-magma purity: <input id="aaw_magma_pty"  placeholder="AAW-magma purity" value="99.8"></p>
+                <p>DAW-magma brix: <input id="daw_magma_bx"  placeholder="DAW-magma brix" value="92"></p>
+                <p>DAW-magma purity: <input id="daw_magma_pty"  placeholder="DAW-magma purity" value="89"></p>
+                <p>Remelt brix: <input id="remelt_bx"  placeholder="Remelt brix" value="65"></p>
+                <p>Remelt purity: <input id="remelt_pty"  placeholder="Remelt purity" value="90"></p>
+                <p>Seed-magma%A-cuite: <input id="seed_percent_a_cuite"  placeholder="Seed-magma%A-cuite" value="12.5"></p>
+                <p>Reject-sugar%cane: <input id="reject_sugar_percent_cane"  placeholder="Reject-sugar%cane" value="0.4"></p>
+                <p>Panwash%massecuite: <input id="panwash_percent_cuite"  placeholder="Panwash%massecuite" value="2"></p>
+
+
+            </div>  <!--end input container-->
             
-            <p>Syrup brix: <input id="syrup_bx"  placeholder="syrup brix" value="64"></p>
-            <p>Syrup purity: <input id="syrup_pty"  placeholder="syrup purity" value="83.5"></p>
-            <p>A-massecuite brix: <input id="a_cuite_bx"  placeholder="A-cuite brix" value="94"></p>
-            <p>A-massecuite purity: <input id="a_cuite_pty"  placeholder="A-cuite purity" value="86.5"></p>
-            <p>C-massecuite brix: <input id="c_cuite_bx"  placeholder="C-cuite brix" value="101"></p>
-            <p>C-massecuite purity: <input id="c_cuite_pty"  placeholder="C-cuite purity" value="72"></p>
-            <p>D-massecuite brix: <input id="d_cuite_bx"  placeholder="D-cuite brix" value="102"></p>
-            <p>D-massecuite purity: <input id="d_cuite_pty"  placeholder="D-cuite purity" value="58"></p>
-            <p>A-molasses brix: <input id="a_mol_bx"  placeholder="A-molasses brix" value="84"></p>
-            <p>A-molasses purity: <input id="a_mol_pty"  placeholder="A-molasses purity" value="70"></p>
-            <p>C-molasses brix: <input id="c_mol_bx"  placeholder="C-molasses brix" value="86"></p>
-            <p>C-molasses purity: <input id="c_mol_pty"  placeholder="C-molasses purity" value="49"></p>
-            <p>Final-molasses brix: <input id="final_mol_bx"  placeholder="Final-molasses brix" value="88"></p>
-            <p>Final-molasses purity: <input id="final_mol_pty"  placeholder="Final-molasses purity" value="34"></p>
-            <p>A-wash brix: <input id="a_wash_bx"  placeholder="A-wash brix" value="78"></p>
-            <p>A-wash purity: <input id="a_wash_pty"  placeholder="A-wash purity" value="95"></p>
-            <p>D-wash brix: <input id="d_wash_bx"  placeholder="D-wash brix" value="80"></p>
-            <p>D-wash purity: <input id="d_wash_pty"  placeholder="D-wash purity" value="65"></p>
-            <p>AFW-magma brix: <input id="afw_magma_bx"  placeholder="AFW-magma brix" value="92"></p>
-            <p>AFW-magma purity: <input id="afw_magma_pty"  placeholder="AFW-magma purity" value="98.8"></p>
-            <p>C-magma brix: <input id="c_magma_bx"  placeholder="C-magma brix" value="91"></p>
-            <p>C-magma purity: <input id="c_magma_pty"  placeholder="C-magma purity" value="92.5"></p>
-            <p>DFW-magma brix: <input id="dfw_magma_bx"  placeholder="DFW-magma brix" value="92"></p>
-            <p>DFW-magma purity: <input id="dfw_magma_pty"  placeholder="DFW-magma purity" value="84"></p>
-            <p>AAW-magma brix: <input id="aaw_magma_bx"  placeholder="AAW-magma brix" value="98.8"></p>
-            <p>AAW-magma purity: <input id="aaw_magma_pty"  placeholder="AAW-magma purity" value="99.8"></p>
-            <p>DAW-magma brix: <input id="daw_magma_bx"  placeholder="DAW-magma brix" value="92"></p>
-            <p>DAW-magma purity: <input id="daw_magma_pty"  placeholder="DAW-magma purity" value="89"></p>
-            <p>Remelt brix: <input id="remelt_bx"  placeholder="Remelt brix" value="65"></p>
-            <p>Remelt purity: <input id="remelt_pty"  placeholder="Remelt purity" value="90"></p>
-            <p>Seed-magma%A-cuite: <input id="seed_percent_a_cuite"  placeholder="Seed-magma%A-cuite" value="12.5"></p>
-            <p>Reject-sugar%cane: <input id="reject_sugar_percent_cane"  placeholder="Reject-sugar%cane" value="0.4"></p>
-            <p>Panwash%massecuite: <input id="panwash_percent_cuite"  placeholder="Panwash%massecuite" value="2"></p>
-
-
-        </div>  <!--end input container-->
-        
-        <button class="btn">Run calculation</button>
-        
-        <h2>Calculation Results- Solid Flow (t/h) </h2>
-        <h5 id="warning" style="display: none;color: red;background-color: yellow;">Warning:There is mismatch in purities. Check input purities again. 
-            A-wash solid flow to A-pan or to mingler shouldn't be negative</h5>
-        <div class="output-container">
-            <p>Clear Juice: <input class="cj_out" readonly></p>
-            <p>Syrup Total: <input id="syrup_out" readonly></p>
-            <p>Syrup for A-cuite-boiling: <input id="syrup_to_a_out" readonly></p>
-            <p>Syrup for C-cuite-boiling: <input id="syrup_to_c_out" readonly></p>
-            <p>A-massecuite: <input id="a-cuite-out" readonly></p>
-            <p>C-massecuite: <input id="c-cuite-out" readonly></p>
-            <p>D-massecuite: <input id="d-cuite-out" readonly></p>
-            <p>A-molasses: <input id="a-mol-out" readonly></p>
-            <p>A-molasses to C-cuite boiling: <input id="a-mol-to-c-out" readonly></p>
-            <p>A-molasses to D-cuite boiling: <input id="a-mol-to-d-out" readonly></p>
-            <p>C-molasses: <input id="c-mol-out" readonly></p>
-            <p>Final-molasses: <input id="final-mol-out" readonly></p>
-            <p>A-wash: <input id="a-wash-out" readonly></p>
-            <p>D-wash: <input id="d-wash-out" readonly></p>
-            <p>A-magma: <input id="afw-magma-out" readonly></p>
-            <p>DFW-magma: <input id="dfw-magma-out" readonly ></p>
-            <p>C-magma: <input id="c-magma-out" readonly></p>
-            <p>AAW-sugar: <input id="aaw-magma-out" readonly></p>
-            <p>DAW-magma: <input id="daw-magma-out" readonly></p>
-            <p>C-magma to remelt: <input id="c-melt-out" readonly></p>
-            <p>C-seed magma: <input id="c-seed-out" readonly></p>
-            <p>A-wash to mingler: <input id="a-wash-mingler-out" readonly></p>
-            <p>A-wash to pan: <input id="a-wash-pan-out" readonly></p>
-            <p>A-panwash: <input id="a-panwash" readonly></p>
-            <p>C-panwash: <input id="c-panwash" readonly></p>
-            <p>D-panwash: <input id="d-panwash" readonly></p>
-            <p>Total-panwash: <input id="total-panwash" readonly></p>
-            <p>Reject sugar to remelt: <input id="reject-sugar" readonly></p>
-            <p>Remelt liquor: <input id="remelt-out" readonly></p>
-            <p>Final product: <input id="final-product-out" readonly></p>
+            <button class="btn">Run calculation</button>
+            
+            <h2>Calculation Results- Solid Flow (t/h) </h2>
+            <h5 id="warning" style="display: none;color: red;background-color: yellow;">Warning:There is mismatch in purities. Check input purities again. 
+                A-wash solid flow to A-pan or to mingler shouldn't be negative</h5>
+            <div class="output-container">
+                <p>Clear Juice: <input class="cj_out" readonly></p>
+                <p>Syrup Total: <input id="syrup_out" readonly></p>
+                <p>Syrup for A-cuite-boiling: <input id="syrup_to_a_out" readonly></p>
+                <p>Syrup for C-cuite-boiling: <input id="syrup_to_c_out" readonly></p>
+                <p>A-massecuite: <input id="a-cuite-out" readonly></p>
+                <p>C-massecuite: <input id="c-cuite-out" readonly></p>
+                <p>D-massecuite: <input id="d-cuite-out" readonly></p>
+                <p>A-molasses: <input id="a-mol-out" readonly></p>
+                <p>A-molasses to C-cuite boiling: <input id="a-mol-to-c-out" readonly></p>
+                <p>A-molasses to D-cuite boiling: <input id="a-mol-to-d-out" readonly></p>
+                <p>C-molasses: <input id="c-mol-out" readonly></p>
+                <p>Final-molasses: <input id="final-mol-out" readonly></p>
+                <p>A-wash: <input id="a-wash-out" readonly></p>
+                <p>D-wash: <input id="d-wash-out" readonly></p>
+                <p>A-magma: <input id="afw-magma-out" readonly></p>
+                <p>DFW-magma: <input id="dfw-magma-out" readonly ></p>
+                <p>C-magma: <input id="c-magma-out" readonly></p>
+                <p>AAW-sugar: <input id="aaw-magma-out" readonly></p>
+                <p>DAW-magma: <input id="daw-magma-out" readonly></p>
+                <p>C-magma to remelt: <input id="c-melt-out" readonly></p>
+                <p>C-seed magma: <input id="c-seed-out" readonly></p>
+                <p>A-wash to mingler: <input id="a-wash-mingler-out" readonly></p>
+                <p>A-wash to pan: <input id="a-wash-pan-out" readonly></p>
+                <p>A-panwash: <input id="a-panwash" readonly></p>
+                <p>C-panwash: <input id="c-panwash" readonly></p>
+                <p>D-panwash: <input id="d-panwash" readonly></p>
+                <p>Total-panwash: <input id="total-panwash" readonly></p>
+                <p>Reject sugar to remelt: <input id="reject-sugar" readonly></p>
+                <p>Remelt liquor: <input id="remelt-out" readonly></p>
+                <p>Final product: <input id="final-product-out" readonly></p>
 
 
 
-        </div>   <!--end output container-->
-        <footer id="footer"><h2>copyright kassahun apps ktm15.com</h2></footer>
-    </div>    <!--ednd crystallization -->
-
-    
-
-   
+            </div>   <!--end output container-->
+            <footer id="footer"><h2>copyright kassahun apps ktm15.com</h2></footer>
+        </div>    <!--ednd crystallization -->
 
     </div>   <!--outer container-->
+
     <script>
         
      var pass=document.querySelector("#password")
@@ -276,9 +270,7 @@
         }
      }   
      s.addEventListener("click",show)
-        
-    
-    
+            
         //assign input variables
         var tch=document.querySelector(".tch");
         var imb=document.querySelector("#imbibition_percent_cane");
@@ -462,38 +454,21 @@
         open=document.querySelectorAll(".open");
         close=document.querySelectorAll(".close");
         
-
-        function openExtraction() {
-            document.querySelector("#extraction_wrapper").style.display="block";          
-        }  
-        function closeExtraction() {
-            document.querySelector("#extraction_wrapper").style.display="none" 
-        } 
+        //function openExtraction() {
+            //document.querySelector("#extraction_wrapper").style.display="block";          
+        //}  
+        //function closeExtraction() {
+            //document.querySelector("#extraction_wrapper").style.display="none" 
+        //} 
         
+        open[0].addEventListener('click',()=>(document.querySelector("#extraction_wrapper").style.display="block"))
+        close[0].addEventListener('click',()=>(document.querySelector("#extraction_wrapper").style.display="none"))
 
-        function openClarification() {
-           document.querySelector("#clarification_wrapper").style.display="block";          
-        }  
-        function closeClarification() {
-           document.querySelector("#clarification_wrapper").style.display="none" 
-        } 
-        
-        
-        function openCrystallization() {
-            document.querySelector("#crystallization_wrapper").style.display="block";          
-        }  
-        function closeCrystallization() {
-            document.querySelector("#crystallization_wrapper").style.display="none" 
-               
-        } 
-        open[0].addEventListener('click',openExtraction)
-        close[0].addEventListener('click',closeExtraction)
+        open[1].addEventListener('click',()=>(document.querySelector("#clarification_wrapper").style.display="block"))
+        close[1].addEventListener('click',()=>(document.querySelector("#clarification_wrapper").style.display="none"))
 
-        open[1].addEventListener('click',openClarification)
-        close[1].addEventListener('click',closeClarification) 
-
-        open[2].addEventListener('click',openCrystallization)
-        close[2].addEventListener('click',closeCrystallization) 
+        open[2].addEventListener('click',()=>(document.querySelector("#crystallization_wrapper").style.display="block"))
+        close[2].addEventListener('click',()=>(document.querySelector("#crystallization_wrapper").style.display="none" )) 
           
           
     </script>
