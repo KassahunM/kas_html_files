@@ -103,12 +103,12 @@
     <h6 id="alert"></h6>
    <div id="outer_container" style="display:none ;">
 
-    <button id='extraction_display'>Open extraction</button>
-    <button id='extraction_none_display'>Close Extraction</button>
-    <button id='clarification_display'>Open Clarification</button>
-    <button id='clarification_none_display'>Close Clarification</button>
-    <button id='crystallization_display'>Open Crystallization</button>
-    <button id='crystallization_none_display'>Close Crystallization</button>
+    <button class='open'>Open extraction</button>
+    <button class='close'>Close Extraction</button>
+    <button class='open'>Open Clarification</button>
+    <button class='close'>Close Clarification</button>
+    <button class='open'>Open Crystallization</button>
+    <button class='close'>Close Crystallization</button>
    
 
     <div id="extraction_wrapper" style="display: none;">
@@ -459,12 +459,9 @@
         btn[1].addEventListener("click",calculateClarification); 
         btn[2].addEventListener("click",calculateCrystallization); 
 
-        extractionDisplay=document.querySelector("#extraction_display");
-        extractionClose=document.querySelector("#extraction_none_display");
-        clarificationDisplay=document.querySelector("#clarification_display");
-        clarificationClose=document.querySelector("#clarification_none_display");
-        crystallizationDisplay=document.querySelector("#crystallization_display");
-        crystallizationClose=document.querySelector("#crystallization_none_display");
+        open=document.querySelectorAll(".open");
+        close=document.querySelectorAll(".close");
+        
 
         function openExtraction() {
             document.querySelector("#extraction_wrapper").style.display="block";          
@@ -472,22 +469,16 @@
         function closeExtraction() {
             document.querySelector("#extraction_wrapper").style.display="none" 
         } 
-        extractionDisplay.addEventListener('click',openExtraction)
-      
-        extractionClose.addEventListener('click',closeExtraction) 
-
+        
 
         function openClarification() {
            document.querySelector("#clarification_wrapper").style.display="block";          
-       }  
+        }  
         function closeClarification() {
            document.querySelector("#clarification_wrapper").style.display="none" 
-      } 
-        clarificationDisplay.addEventListener('click',openClarification)
-  
-        clarificationClose.addEventListener('click',closeClarification) 
+        } 
         
-
+        
         function openCrystallization() {
             document.querySelector("#crystallization_wrapper").style.display="block";          
         }  
@@ -495,17 +486,18 @@
             document.querySelector("#crystallization_wrapper").style.display="none" 
                
         } 
-       crystallizationDisplay.addEventListener('click',openCrystallization)
-      
-       crystallizationClose.addEventListener('click',closeCrystallization) 
+        open[0].addEventListener('click',openExtraction)
+        close[0].addEventListener('click',closeExtraction)
+
+        open[1].addEventListener('click',openClarification)
+        close[1].addEventListener('click',closeClarification) 
+
+        open[2].addEventListener('click',openCrystallization)
+        close[2].addEventListener('click',closeCrystallization) 
           
-        
-    
-        
-        
+          
     </script>
 
     
 </body>
 </html>
-
