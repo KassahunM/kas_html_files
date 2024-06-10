@@ -318,6 +318,7 @@
         var panwash_percent_cuite=document.querySelector("#panwash_percent_cuite");
 
         var mj_out=document.querySelectorAll(".mj_out");//common for extraction and clarification
+        
 
         function calculateExtraction(){
             document.querySelector(".tch_out").value=parseFloat(tch.value).toFixed(2);
@@ -328,28 +329,29 @@
         }
 
         var cj_out = document.querySelectorAll(".cj_out");//common for clarification and crystallization
+
         function calculateClarification(){
             mj_out[1].value=(parseFloat(tch.value*mj.value)/100).toFixed(2);//for clarification
             document.querySelector("#mol_out").value=(parseFloat(tch.value*mol.value)/100).toFixed(2);
             document.querySelector("#so2_out").value=(parseFloat(tch.value*so2.value)/100).toFixed(2);
             document.querySelector("#filter_wash_out").value=parseFloat(tch.value*filter_wash.value/100).toFixed(2);
             document.querySelector("#filter_cake_out").value=parseFloat(tch.value*filter_cake.value/100).toFixed(2);
-            cj=       //since i didn't use var or let or const for variable cj it will be global variable (can be used in the next function block)
-            (parseFloat(mj.value)+parseFloat(filter_wash.value)
-            +parseFloat(mol.value)
-            +parseFloat(so2.value)
-            -parseFloat(filter_cake.value)
-            )*parseFloat(tch.value)/100;  
-
-            
-            
            
-            cj_out[0].value=cj.toFixed(2);
+            cj_out[0].value=((parseFloat(mj.value)+parseFloat(filter_wash.value)
+                             +parseFloat(mol.value)
+                             +parseFloat(so2.value)
+                             -parseFloat(filter_cake.value))
+                             *parseFloat(tch.value)/100).toFixed(2);
         }
 
         function calculateCrystallization(){
-            cj_out[1].value=(cj*parseFloat(cj_bx.value)/100).toFixed(2);
-            var syrup_flow=cj*parseFloat(cj_bx.value)/parseFloat(syrup_bx.value);
+            cj_out[1].value=(((parseFloat(mj.value)+parseFloat(filter_wash.value)
+                            +parseFloat(mol.value)
+                            +parseFloat(so2.value)
+                           -parseFloat(filter_cake.value))
+                            *parseFloat(tch.value)/100)).toFixed(2);
+
+            var syrup_flow=cj_out[1].value*parseFloat(cj_bx.value)/parseFloat(syrup_bx.value);
             var syrup_solid=syrup_flow*parseFloat(syrup_bx.value/100);
             document.querySelector("#syrup_out").value=syrup_solid.toFixed(2);
 
